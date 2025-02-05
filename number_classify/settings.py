@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(z96_ygp1k+cwof(tvs&0eyrb%nxztli9mktq1rn5g2*@lfh_r
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "https://hngstg2-number-classification-api.onrender.com",  
+    "hngstg2-number-classification-api.onrender.com",  
     "127.0.0.1", 
     "localhost"
 ]
