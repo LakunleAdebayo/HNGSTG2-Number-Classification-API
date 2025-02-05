@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-(z96_ygp1k+cwof(tvs&0eyrb%nxztli9mktq1rn5g2*@lfh_r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "number-classifier-api.onrender.com",  
+    "127.0.0.1", 
+    "localhost"
+]
 
 
 # Application definition
@@ -121,6 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR/'assets'
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

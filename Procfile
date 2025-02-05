@@ -1,0 +1,1 @@
+web: gunicorn number_classify.wsgi:application --bind 0.0.0.0:$PORT
