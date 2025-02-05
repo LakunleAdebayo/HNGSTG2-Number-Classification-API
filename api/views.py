@@ -5,35 +5,39 @@ import requests
 import math
 
 def is_armstrong(num):
-    num_str = str(num)
+    # worked on the negative numbers as they cannot be Armstrong numbers
+    if num < 0:
+        return False
+    num_str = str(abs(num))
     power = len(num_str)
     return num == sum(int(digit) ** power for digit in num_str)
 
 def is_prime(num):
+    # changed to so that negative numbers cannot be prime numbers
     if num < 2:
         return False
-    for i in range(2, int(math.sqrt(num)) + 1):
+    for i in range(2, int(math.sqrt(abs(num))) + 1):
         if num % i == 0:
             return False
     return True
 
 def is_perfect(num):
+    # i think this will be help with negative numbers as they cannot be perfect numbers 
     if num <= 1:
         return False
-    sum_divisors = sum(i for i in range(1, num) if num % i == 0)
-    return sum_divisors == num
+    sum_divisors = sum(i for i in range(1, abs(num)) if abs(num) % i == 0)
+    return sum_divisors == abs(num)
 
 def get_digit_sum(num):
-    return sum(int(digit) for digit in str(num))
+    # this will help with negative numbers by using absolute value
+    return sum(int(digit) for digit in str(abs(num)))
 
 def get_number_properties(num):
     properties = []
     
-    # Check Armstrong
     if is_armstrong(num):
         properties.append("armstrong")
     
-    # Check parity
     if num % 2 == 0:
         properties.append("even")
     else:
