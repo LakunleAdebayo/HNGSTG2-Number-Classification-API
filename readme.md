@@ -1,78 +1,68 @@
 # Number Classification API
 
-## Overview
-The **Number Classification API** is a Django-based API that classifies numbers based on mathematical properties and returns interesting facts about them. It determines whether a number is prime, an Armstrong number, odd or even, and provides the sum of its digits along with a fun fact.
+This Django REST API provides mathematical properties and fun facts about numbers.
 
 ## Features
-- Classifies numbers as **prime**, **Armstrong**, **odd**, or **even**.
-- Computes the **sum of the digits**.
-- Fetches a **fun fact** from the Numbers API.
-- Returns results in **JSON format**.
+
+- Classifies numbers based on various mathematical properties
+- Provides fun facts about numbers using the Numbers API
+- Handles CORS for cross-origin requests
+- Returns responses in JSON format
 
 ## API Endpoint
-### **GET /api/classify-number?number={number}**
 
-#### Example Request:
-```
-GET http://127.0.0.1:8000/api/classify-number?number=371
-```
+GET `/api/classify-number?number={number}`
 
-#### Success Response (200 OK):
-```json
+Example Request:
+GET 'http://127.0.0.1:8000/api/classify-number?number=777' 
+
+Success Response (200 OK):
 {
-    "number": 371,
+    "number": 777,
     "is_prime": false,
     "is_perfect": false,
-    "properties": ["armstrong", "odd"],
-    "digit_sum": 11,
-    "fun_fact": "371 is an Armstrong number because 3^3 + 7^3 + 1^3 = 371"
+    "properties": [
+        "odd"
+    ],
+    "digit_sum": 21,
+    "fun_fact": "777 is a repdigit in base 6 and in base 10."
 }
-```
 
-#### Error Response (400 Bad Request):
-```json
+Error Response (400 Bad Request):
 {
     "number": "invalid_input",
     "error": true
 }
-```
 
 ## Installation
 
-### **1. Clone the repository**
-```bash
-git clone https://github.com/yourusername/number-classification-api.git
-cd number-classification-api
-```
+1. Clone the repository:
+git clone https://github.com/LakunleAdebayo/HNGSTG2-Number-Classification-API.git
+cd number-classify
 
-### **2. Create a virtual environment** (Optional but recommended)
-```bash
+2. Create and activate a virtual environment:
+h
 python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-```
+source activate virtual environment
 
-### **3. Install dependencies**
-```bash
+3. Install dependencies:
 pip install -r requirements.txt
-```
 
-### **4. Run the server**
-```bash
+4. Run migrations:
+python manage.py migrate
+
+5. Start the development server:
 python manage.py runserver
-```
 
-## Deployment
-To deploy the project, use services like **Render, Railway, or Heroku**.
+### Deployment
+This project is deployed on Render
 
-## Technologies Used
-- **Django** (Backend framework)
-- **Django REST Framework** (API handling)
-- **Requests** (Fetching fun facts from the Numbers API)
-- **CORS Headers** (Handling cross-origin requests)
+### Technologies Used
+. Django (Backend framework)
+. Django REST Framework (API handling)
+. Requests (Fetching fun facts from the Numbers API)
+. CORS Headers (Handling cross-origin requests)
 
-## Contributing
+### Contributing
 Feel free to fork this repository and submit pull requests with improvements!
-
-## License
-This project is licensed under the MIT License.
 
